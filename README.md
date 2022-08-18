@@ -40,3 +40,4 @@
 
 1. We can add multithreading to this script which extract tons of data from these files.
 1. As threading can reduce the time complexity.
+1. We can make this project more efficient so that this can cater othertext files as well.
