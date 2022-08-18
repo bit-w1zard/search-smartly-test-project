@@ -24,15 +24,12 @@ class Command(BaseCommand):
                 self.stdout.write(self.style.ERROR(f'Unsupported file format: {file_path}'))
     def import_csv(self, file_path):
         with open(file_path, 'r') as f:
-            count=0
             reader = csv.reader(f)
             header_row = next(reader)  # Read header row
             # Skip header row if present
             if header_row[0] == 'poi_id':
                 next(reader)  # Skip header row
             for row in reader:
-                if count == 100:
-                    break
   
                 # Extract data from each row
                 poi_id = row[0]
@@ -53,7 +50,6 @@ class Command(BaseCommand):
                     poi_longitude=poi_longitude,
                     poi_ratings=poi_ratings,  # Store the calculated average rating
                 )
-                count+=1
     def import_json(self, file_path):
         with open(file_path, 'r') as f:
             data = json.load(f)
