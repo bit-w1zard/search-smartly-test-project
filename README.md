@@ -1,0 +1,1 @@
+# search-smartly-test-project
