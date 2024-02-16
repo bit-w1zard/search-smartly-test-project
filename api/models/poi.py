@@ -2,6 +2,8 @@ from simple_history.models import HistoricalRecords
 from django.db import models
 from .utils import TimestampMixin
 
+
+##Point of interest table 
 class PoI(TimestampMixin):
     poi_id = models.CharField(max_length=100, verbose_name='poi external id')
     poi_name = models.CharField(max_length=255)
@@ -12,8 +14,11 @@ class PoI(TimestampMixin):
     
     def __str__(self):
         return self.poi_name
+    
+    history = HistoricalRecords()
+    
     class Meta:
         verbose_name = "POI"
         verbose_name_plural = "POIs"
     
-    history = HistoricalRecords()
+    
